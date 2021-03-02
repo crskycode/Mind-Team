@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="characterset.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="generichash.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyValues.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="mempool.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="stringpool.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="strtools.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="utlbuffer.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="utlstring.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="utlsymbol.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="byteswap.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="characterset.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="generichash.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyValues.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="mempool.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="stringpool.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="strtools.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="utlblockmemory.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="utlbuffer.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="utldict.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="utlfixedmemory.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="utlflags.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="utlhandletable.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="utllinkedlist.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="utlmap.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="utlmemory.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="utlqueue.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="utlrbtree.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="utlstring.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="utlsymbol.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="utlvector.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,529 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source\weapons">
+      <UniqueIdentifier>{c6e5f83a-40e0-4cb9-bc06-ebf9d9c193fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\bot">
+      <UniqueIdentifier>{ed68e7d6-06e1-4563-a1e0-6c42337a2cc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\bot\shared">
+      <UniqueIdentifier>{7dbe19f4-ce5b-4694-bcd9-7f4cb1dab1a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\bot\states">
+      <UniqueIdentifier>{b8c6ce49-21f3-4256-895f-2367ac8cca86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Detours">
+      <UniqueIdentifier>{f287137d-babf-41dd-80f6-8e399fb9a968}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="animating.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="animation.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="bmodels.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="buttons.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="cbase.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterData.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="client.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="cmdparse.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="combat.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="common.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="doors.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="effects.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="explode.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="func_break.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="game.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="gamerule.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="gamerules.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="gamerules_td.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ggrenade.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="globals.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="h_cycler.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="h_export.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="lights.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="mathlib.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MsgAudioData.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplay_gamerules.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="observer.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="player.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pm_shared\pm_debug.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pm_shared\pm_hull.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pm_shared\pm_math.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pm_shared\pm_shared.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="RadioData.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="sound.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="spectator.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_util.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="subs.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="sys.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="triggers.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="util.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="WeaponData.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="weapons.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="world.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="weapon_flashbang.cpp">
+      <Filter>Source\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="weapon_hegrenade.cpp">
+      <Filter>Source\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="weapon_knife.cpp">
+      <Filter>Source\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="weapon_pistol.cpp">
+      <Filter>Source\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="weapon_rifle.cpp">
+      <Filter>Source\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="weapon_shotgun.cpp">
+      <Filter>Source\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="weapon_smokegrenade.cpp">
+      <Filter>Source\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="weapon_sniper.cpp">
+      <Filter>Source\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\bot.cpp">
+      <Filter>Source\bot</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\bot_hide.cpp">
+      <Filter>Source\bot</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\bot_manager.cpp">
+      <Filter>Source\bot</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\bot_util.cpp">
+      <Filter>Source\bot</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\cs_bot.cpp">
+      <Filter>Source\bot</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\cs_bot_init.cpp">
+      <Filter>Source\bot</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\cs_bot_listen.cpp">
+      <Filter>Source\bot</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\cs_bot_manager.cpp">
+      <Filter>Source\bot</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\cs_bot_nav.cpp">
+      <Filter>Source\bot</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\cs_bot_pathfind.cpp">
+      <Filter>Source\bot</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\cs_bot_statemachine.cpp">
+      <Filter>Source\bot</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\cs_bot_update.cpp">
+      <Filter>Source\bot</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\cs_bot_vision.cpp">
+      <Filter>Source\bot</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\cs_bot_weapon.cpp">
+      <Filter>Source\bot</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\cs_gamestate.cpp">
+      <Filter>Source\bot</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\debugoverlay_shared.cpp">
+      <Filter>Source\bot</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\nav_area.cpp">
+      <Filter>Source\bot</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\nav_colors.cpp">
+      <Filter>Source\bot</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\nav_edit.cpp">
+      <Filter>Source\bot</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\nav_file.cpp">
+      <Filter>Source\bot</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\nav_generate.cpp">
+      <Filter>Source\bot</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\nav_int.cpp">
+      <Filter>Source\bot</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\nav_ladder.cpp">
+      <Filter>Source\bot</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\nav_mesh.cpp">
+      <Filter>Source\bot</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\nav_node.cpp">
+      <Filter>Source\bot</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\nav_path.cpp">
+      <Filter>Source\bot</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\collisionutils.cpp">
+      <Filter>Source\bot\shared</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\convar.cpp">
+      <Filter>Source\bot\shared</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\filesystem_simple.cpp">
+      <Filter>Source\bot\shared</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\spatialpartition.cpp">
+      <Filter>Source\bot\shared</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\util_shared.cpp">
+      <Filter>Source\bot\shared</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\cs_bot_attack.cpp">
+      <Filter>Source\bot\states</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\cs_bot_buy.cpp">
+      <Filter>Source\bot\states</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\cs_bot_follow.cpp">
+      <Filter>Source\bot\states</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\cs_bot_hide.cpp">
+      <Filter>Source\bot\states</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\cs_bot_hunt.cpp">
+      <Filter>Source\bot\states</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\cs_bot_idle.cpp">
+      <Filter>Source\bot\states</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\cs_bot_investigate_noise.cpp">
+      <Filter>Source\bot\states</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\cs_bot_move_to.cpp">
+      <Filter>Source\bot\states</Filter>
+    </ClCompile>
+    <ClCompile Include="css_bot\cs_bot_use_entity.cpp">
+      <Filter>Source\bot\states</Filter>
+    </ClCompile>
+    <ClCompile Include="engine_hook.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Detours\detours.cpp">
+      <Filter>Detours</Filter>
+    </ClCompile>
+    <ClCompile Include="Detours\disasm.cpp">
+      <Filter>Detours</Filter>
+    </ClCompile>
+    <ClCompile Include="Detours\image.cpp">
+      <Filter>Detours</Filter>
+    </ClCompile>
+    <ClCompile Include="Detours\modules.cpp">
+      <Filter>Detours</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_hook.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="server.def">
+      <Filter>Source</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="css_bot\bot.h">
+      <Filter>Source\bot</Filter>
+    </ClInclude>
+    <ClInclude Include="css_bot\bot_constants.h">
+      <Filter>Source\bot</Filter>
+    </ClInclude>
+    <ClInclude Include="css_bot\bot_manager.h">
+      <Filter>Source\bot</Filter>
+    </ClInclude>
+    <ClInclude Include="css_bot\bot_profile.h">
+      <Filter>Source\bot</Filter>
+    </ClInclude>
+    <ClInclude Include="css_bot\bot_util.h">
+      <Filter>Source\bot</Filter>
+    </ClInclude>
+    <ClInclude Include="css_bot\cs_bot.h">
+      <Filter>Source\bot</Filter>
+    </ClInclude>
+    <ClInclude Include="css_bot\cs_bot_manager.h">
+      <Filter>Source\bot</Filter>
+    </ClInclude>
+    <ClInclude Include="css_bot\cs_gamestate.h">
+      <Filter>Source\bot</Filter>
+    </ClInclude>
+    <ClInclude Include="css_bot\debugoverlay_shared.h">
+      <Filter>Source\bot</Filter>
+    </ClInclude>
+    <ClInclude Include="css_bot\nav.h">
+      <Filter>Source\bot</Filter>
+    </ClInclude>
+    <ClInclude Include="css_bot\nav_area.h">
+      <Filter>Source\bot</Filter>
+    </ClInclude>
+    <ClInclude Include="css_bot\nav_colors.h">
+      <Filter>Source\bot</Filter>
+    </ClInclude>
+    <ClInclude Include="css_bot\nav_int.h">
+      <Filter>Source\bot</Filter>
+    </ClInclude>
+    <ClInclude Include="css_bot\nav_ladder.h">
+      <Filter>Source\bot</Filter>
+    </ClInclude>
+    <ClInclude Include="css_bot\nav_mesh.h">
+      <Filter>Source\bot</Filter>
+    </ClInclude>
+    <ClInclude Include="css_bot\nav_node.h">
+      <Filter>Source\bot</Filter>
+    </ClInclude>
+    <ClInclude Include="css_bot\nav_path.h">
+      <Filter>Source\bot</Filter>
+    </ClInclude>
+    <ClInclude Include="css_bot\nav_pathfind.h">
+      <Filter>Source\bot</Filter>
+    </ClInclude>
+    <ClInclude Include="css_bot\cmodel.h">
+      <Filter>Source\bot\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="css_bot\collisionutils.h">
+      <Filter>Source\bot\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="css_bot\convar.h">
+      <Filter>Source\bot\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="css_bot\filesystem_simple.h">
+      <Filter>Source\bot\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="css_bot\fmtstr.h">
+      <Filter>Source\bot\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="css_bot\improv_locomotor.h">
+      <Filter>Source\bot\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="css_bot\ispatialpartition.h">
+      <Filter>Source\bot\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="css_bot\obstacle_pushaway.h">
+      <Filter>Source\bot\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="css_bot\source.h">
+      <Filter>Source\bot\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="css_bot\util_shared.h">
+      <Filter>Source\bot\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="css_bot\utllinkedlist.h">
+      <Filter>Source\bot\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="css_bot\utlmemory.h">
+      <Filter>Source\bot\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="css_bot\utlvector.h">
+      <Filter>Source\bot\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="activity.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="activitymap.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="animation.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="cbase.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterData.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="client.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="cmdparse.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="common.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="doors.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="effects.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="enginecallback.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="explode.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="extdll.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="func_break.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="game.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEvent.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="gamerule.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="gamerules.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="message.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MsgAudioData.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="player.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="RadioData.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="spectator.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_util.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="sys.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="util.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="vector.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="vector2d.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="WeaponData.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="weapons.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="engine_hook.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_hook.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="server.rc">
+      <Filter>Resource</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

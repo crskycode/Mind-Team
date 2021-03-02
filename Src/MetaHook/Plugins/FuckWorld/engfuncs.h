@@ -1,0 +1,1 @@
+void *GetEngineFunc(const char *szName);

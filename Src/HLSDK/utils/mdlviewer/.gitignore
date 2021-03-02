@@ -1,0 +1,11 @@
+Debug/
+Release/
+ipch/
+*.ncb
+*.suo
+*.sdf
+*.aps
+*.opensdf
+*.dll
+sky/
+model/

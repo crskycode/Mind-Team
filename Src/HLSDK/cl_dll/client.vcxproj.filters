@@ -1,0 +1,455 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AnimationScript.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="BagData.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="buffer.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="cdll_client_int.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="cdll_int.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterData.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="cl_wpn_knife.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="cl_wpn_rifle.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientState.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="cmdparse.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="com_weapons.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="demo.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="dxinput.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="encode.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="entity.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="event_hooks.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="event_script.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="fov.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStudioModelRenderer.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="GameUI_Interface.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="hud.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="hud_ace.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="hud_ammo.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="hud_bag.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="hud_center.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="hud_character.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="hud_crosshair.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="hud_damagearrow.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="hud_flashbang.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="hud_gametip.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="hud_gauge.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="hud_goalscore.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="hud_health.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="hud_killer.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="hud_killmsg.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="hud_location.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="hud_mark.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="hud_mission.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="hud_notify.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="hud_radar.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="hud_radio.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="hud_scoreboard.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="hud_sensity.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="hud_snipercrosshair.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="hud_spectate.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="hud_tacticalmap.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="hud_teammate.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="hud_undermark.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="hud_weaponslot.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="hud_winstatus.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="in_camera.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="input.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="inputw32.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\interface.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="layout.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MapData.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="mathlib.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="message.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MetaStudioMath.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MetaStudioRenderer.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MsgAudio.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MsgAudioData.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MuzzleFlash.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="parsemsg.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pm_shared\pm_debug.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pm_shared\pm_hull.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pm_shared\pm_math.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pm_shared\pm_shared.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="qgl.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Radio.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="RadioData.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="screenshot.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="shader.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundData.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="sprite.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_util.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="StudioModelRenderer.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="StudioModelSkin.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="sys.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="tempentity.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="tri.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="util.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="vgui_buysetupdialog.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="vgui_chatboxdialog.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="vgui_gamemenudialog.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="view.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Viewport.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Viewport_Interface.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="WeaponData.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="weapons.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AnimationScript.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="BagData.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="buffer.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="camera.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CEValue.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterData.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="cl_dll.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="cl_util.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientState.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="cmdparse.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="com_weapons.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="demo.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="dxinput.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="encode.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ev_hldm.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="fov.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStudioModelRenderer.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="GameUI_Interface.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="hud.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="input.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="kbutton.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MapData.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MetaHook_Interface.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="metastudio.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MetaStudioMath.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MetaStudioRenderer.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MsgAudioData.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MuzzleFlash.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="parsemsg.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="player.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="qgl.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="RadioData.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="shader.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundData.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="sprite.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_util.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="StudioModelRenderer.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="sys.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="tempentity.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="util.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="util_vector.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="vgui_buysetupdialog.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="vgui_chatboxdialog.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="vgui_gamemenudialog.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="view.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Viewport.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="WeaponData.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="weapons.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="wrect.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gl_mathlib.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="client.rc">
+      <Filter>Resource</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

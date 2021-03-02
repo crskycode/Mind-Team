@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{0FBC41B8-9D3B-4224-86A2-8B33AFC80DE9}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <SpectreMitigation>false</SpectreMitigation>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <SpectreMitigation>false</SpectreMitigation>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>15.0.27128.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\common;..\dlls;..\engine;..\game_shared;..\metastudio;..\pm_shared;..\..\Lib\newkeyvalues;.\css_bot;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG;_CRT_SECURE_NO_DEPRECATE;ENGINE_VER_3266;CSS_BOT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>psapi.lib;newkeyvalues.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>.\server.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateMapFile>true</GenerateMapFile>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy "$(OutDir)$(ProjectName).dll" "I:\Client\metric\dlls\$(ProjectName).dll"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>..\common;..\dlls;..\engine;..\game_shared;..\metastudio;..\pm_shared;..\..\Lib\newkeyvalues;.\css_bot;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;ENGINE_VER_3266;CSS_BOT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>psapi.lib;newkeyvalues.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>.\server.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateMapFile>true</GenerateMapFile>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy "$(OutDir)$(ProjectName).dll" "X:\Client\metric\dlls\$(ProjectName).dll"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\pm_shared\pm_debug.c" />
+    <ClCompile Include="..\pm_shared\pm_hull.c" />
+    <ClCompile Include="..\pm_shared\pm_math.c" />
+    <ClCompile Include="..\pm_shared\pm_shared.c" />
+    <ClCompile Include="animating.cpp" />
+    <ClCompile Include="animation.cpp" />
+    <ClCompile Include="bmodels.cpp" />
+    <ClCompile Include="buttons.cpp" />
+    <ClCompile Include="cbase.cpp" />
+    <ClCompile Include="CharacterData.cpp" />
+    <ClCompile Include="client.cpp" />
+    <ClCompile Include="cmdparse.cpp" />
+    <ClCompile Include="combat.cpp" />
+    <ClCompile Include="common.c" />
+    <ClCompile Include="css_bot\bot.cpp" />
+    <ClCompile Include="css_bot\bot_hide.cpp" />
+    <ClCompile Include="css_bot\bot_manager.cpp" />
+    <ClCompile Include="css_bot\bot_util.cpp" />
+    <ClCompile Include="css_bot\collisionutils.cpp" />
+    <ClCompile Include="css_bot\convar.cpp" />
+    <ClCompile Include="css_bot\cs_bot.cpp" />
+    <ClCompile Include="css_bot\cs_bot_attack.cpp" />
+    <ClCompile Include="css_bot\cs_bot_buy.cpp" />
+    <ClCompile Include="css_bot\cs_bot_follow.cpp" />
+    <ClCompile Include="css_bot\cs_bot_hide.cpp" />
+    <ClCompile Include="css_bot\cs_bot_hunt.cpp" />
+    <ClCompile Include="css_bot\cs_bot_idle.cpp" />
+    <ClCompile Include="css_bot\cs_bot_init.cpp" />
+    <ClCompile Include="css_bot\cs_bot_investigate_noise.cpp" />
+    <ClCompile Include="css_bot\cs_bot_listen.cpp" />
+    <ClCompile Include="css_bot\cs_bot_manager.cpp" />
+    <ClCompile Include="css_bot\cs_bot_move_to.cpp" />
+    <ClCompile Include="css_bot\cs_bot_nav.cpp" />
+    <ClCompile Include="css_bot\cs_bot_pathfind.cpp" />
+    <ClCompile Include="css_bot\cs_bot_statemachine.cpp" />
+    <ClCompile Include="css_bot\cs_bot_update.cpp" />
+    <ClCompile Include="css_bot\cs_bot_use_entity.cpp" />
+    <ClCompile Include="css_bot\cs_bot_vision.cpp" />
+    <ClCompile Include="css_bot\cs_bot_weapon.cpp" />
+    <ClCompile Include="css_bot\cs_gamestate.cpp" />
+    <ClCompile Include="css_bot\debugoverlay_shared.cpp" />
+    <ClCompile Include="css_bot\filesystem_simple.cpp" />
+    <ClCompile Include="css_bot\nav_area.cpp" />
+    <ClCompile Include="css_bot\nav_colors.cpp" />
+    <ClCompile Include="css_bot\nav_edit.cpp" />
+    <ClCompile Include="css_bot\nav_file.cpp" />
+    <ClCompile Include="css_bot\nav_generate.cpp" />
+    <ClCompile Include="css_bot\nav_int.cpp" />
+    <ClCompile Include="css_bot\nav_ladder.cpp" />
+    <ClCompile Include="css_bot\nav_mesh.cpp" />
+    <ClCompile Include="css_bot\nav_node.cpp" />
+    <ClCompile Include="css_bot\nav_path.cpp" />
+    <ClCompile Include="css_bot\spatialpartition.cpp" />
+    <ClCompile Include="css_bot\util_shared.cpp" />
+    <ClCompile Include="Detours\detours.cpp" />
+    <ClCompile Include="Detours\disasm.cpp" />
+    <ClCompile Include="Detours\image.cpp" />
+    <ClCompile Include="Detours\modules.cpp" />
+    <ClCompile Include="doors.cpp" />
+    <ClCompile Include="effects.cpp" />
+    <ClCompile Include="engine_hook.cpp" />
+    <ClCompile Include="explode.cpp" />
+    <ClCompile Include="func_break.cpp" />
+    <ClCompile Include="game.cpp" />
+    <ClCompile Include="gamerule.cpp" />
+    <ClCompile Include="gamerules.cpp" />
+    <ClCompile Include="gamerules_td.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="ggrenade.cpp" />
+    <ClCompile Include="globals.cpp" />
+    <ClCompile Include="h_cycler.cpp" />
+    <ClCompile Include="h_export.cpp" />
+    <ClCompile Include="lights.cpp" />
+    <ClCompile Include="mathlib.cpp" />
+    <ClCompile Include="MsgAudioData.cpp" />
+    <ClCompile Include="multiplay_gamerules.cpp" />
+    <ClCompile Include="observer.cpp" />
+    <ClCompile Include="player.cpp" />
+    <ClCompile Include="RadioData.cpp" />
+    <ClCompile Include="sound.cpp" />
+    <ClCompile Include="spectator.cpp" />
+    <ClCompile Include="studio_hook.cpp" />
+    <ClCompile Include="studio_util.cpp" />
+    <ClCompile Include="subs.cpp" />
+    <ClCompile Include="sys.cpp" />
+    <ClCompile Include="triggers.cpp" />
+    <ClCompile Include="util.cpp" />
+    <ClCompile Include="WeaponData.cpp" />
+    <ClCompile Include="weapons.cpp" />
+    <ClCompile Include="weapon_flashbang.cpp" />
+    <ClCompile Include="weapon_hegrenade.cpp" />
+    <ClCompile Include="weapon_knife.cpp" />
+    <ClCompile Include="weapon_pistol.cpp" />
+    <ClCompile Include="weapon_rifle.cpp" />
+    <ClCompile Include="weapon_shotgun.cpp" />
+    <ClCompile Include="weapon_smokegrenade.cpp" />
+    <ClCompile Include="weapon_sniper.cpp" />
+    <ClCompile Include="world.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="server.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="activity.h" />
+    <ClInclude Include="activitymap.h" />
+    <ClInclude Include="animation.h" />
+    <ClInclude Include="cbase.h" />
+    <ClInclude Include="CharacterData.h" />
+    <ClInclude Include="client.h" />
+    <ClInclude Include="cmdparse.h" />
+    <ClInclude Include="common.h" />
+    <ClInclude Include="css_bot\bot.h" />
+    <ClInclude Include="css_bot\bot_constants.h" />
+    <ClInclude Include="css_bot\bot_manager.h" />
+    <ClInclude Include="css_bot\bot_profile.h" />
+    <ClInclude Include="css_bot\bot_util.h" />
+    <ClInclude Include="css_bot\cmodel.h" />
+    <ClInclude Include="css_bot\collisionutils.h" />
+    <ClInclude Include="css_bot\convar.h" />
+    <ClInclude Include="css_bot\cs_bot.h" />
+    <ClInclude Include="css_bot\cs_bot_manager.h" />
+    <ClInclude Include="css_bot\cs_gamestate.h" />
+    <ClInclude Include="css_bot\debugoverlay_shared.h" />
+    <ClInclude Include="css_bot\filesystem_simple.h" />
+    <ClInclude Include="css_bot\fmtstr.h" />
+    <ClInclude Include="css_bot\improv_locomotor.h" />
+    <ClInclude Include="css_bot\ispatialpartition.h" />
+    <ClInclude Include="css_bot\nav.h" />
+    <ClInclude Include="css_bot\nav_area.h" />
+    <ClInclude Include="css_bot\nav_colors.h" />
+    <ClInclude Include="css_bot\nav_int.h" />
+    <ClInclude Include="css_bot\nav_ladder.h" />
+    <ClInclude Include="css_bot\nav_mesh.h" />
+    <ClInclude Include="css_bot\nav_node.h" />
+    <ClInclude Include="css_bot\nav_path.h" />
+    <ClInclude Include="css_bot\nav_pathfind.h" />
+    <ClInclude Include="css_bot\obstacle_pushaway.h" />
+    <ClInclude Include="css_bot\source.h" />
+    <ClInclude Include="css_bot\util_shared.h" />
+    <ClInclude Include="css_bot\utllinkedlist.h" />
+    <ClInclude Include="css_bot\utlmemory.h" />
+    <ClInclude Include="css_bot\utlvector.h" />
+    <ClInclude Include="doors.h" />
+    <ClInclude Include="effects.h" />
+    <ClInclude Include="enginecallback.h" />
+    <ClInclude Include="engine_hook.h" />
+    <ClInclude Include="explode.h" />
+    <ClInclude Include="extdll.h" />
+    <ClInclude Include="func_break.h" />
+    <ClInclude Include="game.h" />
+    <ClInclude Include="GameEvent.h" />
+    <ClInclude Include="gamerule.h" />
+    <ClInclude Include="gamerules.h" />
+    <ClInclude Include="message.h" />
+    <ClInclude Include="MsgAudioData.h" />
+    <ClInclude Include="player.h" />
+    <ClInclude Include="RadioData.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="spectator.h" />
+    <ClInclude Include="studio_hook.h" />
+    <ClInclude Include="studio_util.h" />
+    <ClInclude Include="sys.h" />
+    <ClInclude Include="util.h" />
+    <ClInclude Include="vector.h" />
+    <ClInclude Include="vector2d.h" />
+    <ClInclude Include="WeaponData.h" />
+    <ClInclude Include="weapons.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="server.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Lib\newkeyvalues\newkeyvalues.vcxproj">
+      <Project>{84ae7d9f-b3bd-4ef8-9170-e32b92fb1547}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,474 @@
+﻿//------------------------------------------
+// CRSKY DEVELOPING MIND-TEAM NOTE
+//------------------------------------------
+
++ 未处理
+- 已处理
+! 请注意
+? 有疑问
+
+
+!CreateNamedEntity会自动清零PrivateData
+!player->spectator只有HLTV才会TRUE
+!iuser1决定了是不是观察者
+!gEngfuncs.IsSpectateOnly()如果是HLTV就返回TRUE
+!观察者HP不能设置为0
+!pmove->dead = (player->health <= 0)
+!观察者状态是pev->deadflag == DEAD_DEAD && pev->health == 1
+!观察者状态下与movetype无关（因为使用PM_SpectatorMove）
+!pev->effect加入EF_NOINTERP的话state->deadflag会变成1
+!CF里刀子没有punchangle恢复速度率，切换到枪械直接恢复到0
+!使用Res布局需要控件在项目内有实例才会被编译，否则控件将无法创建（没有编译的控件将不会出现在Build列表）
+!射击子弹Event需要在客户端计算子弹实际方向
+!QV模型缩放0.4~0.5左右合适
+!用EVENT传递随机数种子给客户端计算弹道扩散因子
+!discard丢弃片段
+!CmdStart->PlayerPreThink->Think->PM_Move->PlayerPostThink->CmdEnd
+!CF角色模型Gait动画切换逻辑 将当前骨架过渡[线性插值]到目标动画第一帧[固定时长] -> 开始播放目标动画
+!cl_forwardspeed 向前移动的速度
+!cl_backspeed 向后移动的速度
+!cl_sidespeed 向左右移动的速度
+!cl_movespeedkey 按住Shift之后对正常速度缩放的倍率
+!WeaponBox使用iUser2保存WeaponID
+!RF152.REZ - Script
+!MSGID从64开始
+!ServerActivate的时候发送MSG会出现UnknowUserMsg
+!客户端确认连接后服务器会在SV_SendServerinfo里给客户端发送服务器信息，客户端CL_ParseServerInfo里接收
+!Demo_ReadBuffer用于从Demo流中读取自定义数据
+!PM_ReduceTimers减去fuser2（落地减速）
+!如果把clientdata_t的health设置为0引擎就不会绘制V模型
+!服务端调用SV_AddLinksToPM_把允许和玩家发生碰撞的实体添加到pmove->physents[]
+!客户端调用CL_SetSolidEntities把允许和玩家发生碰撞的实体添加到pmove->physents[]
+
+角度系统
+---------------------------------
+angles[0] -> PITCH
+angles[1] -> YAW
+angles[2] -> ROLL
+(-)PITCH -> UP（转向上方）
+(+)PITCH -> DOWN（转向下方）
+(-)YAW -> RIGHT（转向右方）
+(+)YAW -> LEFT（转向左方）
+(-)ROLL -> CCW（逆时针方向侧翻）
+(+)ROLL -> CW（顺时针方向侧翻）
+
+
+人物模型相关
+---------------------------------
+身高：72（182CM）
+
+
+HUD_UpdateClientData
+---------------------------------
+返回TRUE引擎将会使用viewangles和fov
+
+
+HUD_AddEntity
+---------------------------------
+返回TRUE则实体被加入绘制列表进行绘制，否则不绘制该实体。
+
+HUD_TxferLocalOverrides
+---------------------------------
+SV把clientdata（UpdateClientData）和entities（AddToFullPack）分开发送给CL，由于entities里的LocalPlayer有些字段是没有发来的（比如origin和iuser）,
+所以就要从ClientData复制过去，注意：SV先发clientdata再发entities
+
+HUD_ProcessPlayerState
+---------------------------------
+这个函数把接收到的entities里的player实体的状态（此时HUD_TxferLocalOverrides已执行，所以包括了LocalPlayer）复制到playerstate主要用于客户端预测。
+
+HUD_TxferPredictionData
+---------------------------------
+这个函数把客户端预测帧复制到当前帧
+参数：ps	-当前帧->PlayerState
+参数：pps	-预测帧->PlayerState
+参数：pcd	-当前帧->ClientData
+参数：ppcd	-预测帧->ClientData
+参数：wd	-当前帧->WeaponData
+参数：pwd	-预测帧->WeaponData
+
+CL_IsThirdPerson
+---------------------------------
+返回TRUE的话引擎绘制自己的玩家模型并且不会绘制V模型
+
+V_CalcIntermissionRefdef
+---------------------------------
+计算中场休息时的摄像机。
+中场休息是指一个地图的游戏时间已结束，切换到下一张地图之前显示记分板时候的摄像机
+
+V_CalcNormalRefdef
+---------------------------------
+计算第一人称视角的摄像机
+
+V_CalcSpectatorRefdef
+---------------------------------
+计算观察者的摄像机
+
+服务器实体与客户端实体
+---------------------------------
+服务器里存储一个实体的结构是edict_t（可以说一个edict_t就是一个服务器实体），下面解释edict_t：
+struct edict_t
+{
+	qboolean free;	// 表示本实体是否已经被引擎释放（被释放的实体不能再使用，否则会导致引擎崩溃）
+	int serialnumber;	// 引擎内部使用
+	link_t area;	// 引擎内部使用
+	int headnode;	// 引擎内部使用
+	int num_leafs;	// 引擎内部使用
+	short leafnums;	// 引擎内部使用
+	float freetime;	// 当该实体被释放时更新该变量
+	void *pvPrivateData;	// 指向实体的控制类
+	entvars_t v;	// 实体变量（就是常说的pev）
+}
+创建一个实体的流程是怎样的？
+1. 用户调用g_engfuncs.pfnCreateNamedEntity(classname)
+2. 引擎创建一个edict_t
+3. 引擎在mp.dll里查找名为classname的函数
+4. 引擎调用classname函数创建一个实体控制类
+5. 引擎把创建出的类的指针保存到edict_t的pvPrivateData变量
+6. 引擎返回edict_t给用户
+
+weapon_ak47函数是用LINK_ENTITY_TO_CLASS生成的
+LINK_ENTITY_TO_CLASS(weapon_ak47, CAK47) 将会生成如下函数（当然是简化的）：
+CAK47 *weapon_ak47()
+{
+	return new CAK47();
+}
+引擎调用classname函数来创建一个实体控制类并把类指针保存到pvPrivateData里
+当引擎Spawn一个实体，引擎就会调用mp.dll里的DispatchSpawn( entity )函数，
+然后在DispatchSpawn里取出pvPrivateData并转换回类指针，调用类里的Spawn函数。
+int DispatchSpawn(edict_t *pent)
+{
+	CBaseEntity *pEntity = (CBaseEntity *)pent->pvPrivateData;
+	...
+	pEntity->Spawn();
+}
+除了Spawn还有其它Touch之类的一堆。
+这就是CBaseXXX和edict_t的关联。
+简单说服务器实体的本体就是edict_t，而CBaseXXX是该实体的控制器，用来实现实体的功能。
+
+
+
+
+
+DeltaEncoder
+---------------------------------
+当引擎把要发送的数据（例如：clientdata_t、entity_state_t）写入Delta缓冲区之前，引擎就会调用
+自定义的Encoder函数，在函数里，可以取消某个Field（例如：iuser1），这样引擎就不会将这个Field写入缓冲区，
+当然也就不会发送它了。
+g_engfuncs.pfnDeltaSetFieldByIndex（给指定的Field加上SEND标记，引擎将会发送它）
+g_engfuncs.pfnDeltaUnsetFieldByIndex（取消指定的Field的SEND标记，引擎将不会发送它）
+这个功能可以用来过滤掉一些不需要发送的数据，以减少数据发送量，减少网络带宽占用。
+用户可以自己在delta.lst里增加Encoder，例如给event_t增加一个。
+
+AddToFullPack
+---------------------------------
+服务器需要实时把实体状态发送给客户端，引擎会把所有要发送的实体放进一个包里（FullPack）然后把这个包发送给客户端，
+它提供一个接口让用户可以自己决定哪些实体需要放进包里，当引擎要将一个实体添加到FullPack里时，它会调用AddToFullPack函数，
+如果此函数返回TRUE，引擎则将这个实体加入FullPack里，否则不添加（也就不会发送这个实体）。同时在此函数里用户还可以自定义
+实体状态（决定实体哪些数据要发送），要发送的状态就是state参数，只要从ent参数里把需要发送的数据复制到state参数里就行。
+实际上就是edict_t转为entity_state_t的过程。注：引擎只发送entity_state_t给客户端，客户端只得知一个实体的状态，
+客户端是没有edict_t的。
+
+DEMO录制和播放
+---------------------------------
+在HUD组件里即时检查是否正在录制DEMO，如果正在录制DEMO就把HUD组件的状态数据写进DEMO里。
+在HUD组件接收到新的MSG时检查是否正在播放DEMO并且数据是否已经恢复，如果还没有恢复就暂时不处理此MSG。
+当引擎解析DEMO时为HUD恢复状态数据。
+
+ACE判断逻辑
+---------------------------------
+ACE即杀敌数/死亡数，游戏内杀敌数/死亡数排名第一的玩家将会有金色ACE显示
+当金色ACE玩家杀敌数在10以上，并且杀敌数与第一名相差3人之内的玩家将会有银色ACE显示
+当第二名杀敌数与第一名相差3人数以上时，第二名的银色ACE标志将消失
+
+闪光弹逻辑
+---------------------------------
+只有玩家能看到闪光弹才会被闪
+有固定被闪持续时间的范围，超出范围后衰减被闪时间
+
+// Sound Engine
+!channels[0~3]是ambient用的固定通道，无法占用
+
+JoiningThinkl流程
+---------------------------------
+PutInServer之后进入PUTINSERVER分支（通知客户端连接已完成，客户端此时要提交join命令）
+进入WAITINGCLIENT分支等待客户端
+接收到客户端join命令（ClientCommand）：进入GETINTOGAME分支（尝试加入队伍）
+失败：跳回WAITINGCLIENT分支
+成功：跳到JOINED（JoiningThinkl结束）
+
+PlayerDeathThink流程
+---------------------------------
+PreThink判断deadflag==DEAD_DYING或deadflag==DEAD_DEAD进入PlayerDeathThink
+如果有武器就丢掉（PackDeadPlayerItems）
+如果有模型并且死亡3秒内就播放模型动画（StudioFrameAdvance）结束本次Think
+超过了3秒后deadflag变更为DEAD_DEAD并且更新m_flDeadTime为当前时间
+停止模型动画（pev->framerate = 0）
+进入观察者模式
+PlayerDeathThink将会持续执行，直至deadflag变更为DEAD_NO
+
+
+V模型显示有关的
+---------------------------------
+clientdata_t
+	vuser1[0] = PlayerTeam
+	vuser1[1] = RoleID
+	vuser1[2] = WeaponID
+
+目标
+---------------------------------
++服务器直接关闭会导致客户端崩溃 HUD_UpdateClientData
++状态MSG最好放到Think里发送
+-人物模型最好能直接用pev->modelindex改变（StudioDrawPlayer）
+-删除CBasePlayerItem
++限制SelectSlot时间间隔
+?预测的Reload因为服务器更新Clip不及时导致Reload之后再次Reload
++玩家的punchangle恢复速率由武器决定
+?VGUI内存泄漏
++第一人称枪火
++第三人称枪火
+?雷达刷新有问题
++完善观察者状态（武器V模型同步还没弄完）
++decal会乱跑
++3D声音表
++地图初始视角从文件读取
++C4地点摄像机
++顶部视图摄像机
++由地图表决定游戏类型
+-狙击镜子
+-移动时狙击镜子的十字线断掉一部分
+-狙击镜子宽屏模式变形
+-狙击枪镜子切换声音
++独立V模型模块，使之可以自由控制，不再直接从MSG获取数据
+-弹夹空扳机声音
+-12345切枪的时候要记住槽位情况，下次还是回到这个武器，而不是该槽位第一个
++重置回合清理WeaponBox
++被击中的人血液效果
++被击中的人的动画
++子弹飞过的痕迹
++手枪的m_iShotsFired有问题
++观察目标开镜时，观察者的FOV
++人物HP值有3种颜色，并且最低时会闪烁
++带有C4时右侧WeaponSlot往上移动一个槽位
+-按Page键调整鼠标灵敏度
++投票踢人
+-修复纹理路径大小写不一致导致HashMap产生重复纹理的问题
+-把SkyBox纹理ID改大一点
++按Insert键切换队友显示功能
+-按Delete键开启或关闭雷达
+-把ESC和~键的优先权交给client.dll
+-去掉引擎默认绑定~键命令
+-把F12改成切换控制台
+-ACE图标
+-闪光弹效果
++个人竞技不能打开队友显示
++死后视角朝向killer
++手枪不知道为什麽会连发
+-重写R_LoadSkys
+-使用配置文件定制地图纹理
+-检查地图是否有足够的出生点（CWorld::Precache的时候获取不到实体）
++武器打完子弹后右上角弹出提示（只一次）
+-回合开始时清理地图
++用脚本解析无线电
+-V模型深度有点问题
+-有玩家退出游戏时重新检查ACE
++当kills和deads相同时最好判断一下killTime
++在客户端翻译提示信息
+-已经GameOver拒绝新玩家加入游戏
++在尸体的实体播放死亡动作，以避免玩家实体朝向问题
++复活时要取消地震效果
++复活时要取消闪光弹效果
++从中途开始录制DEMO会因为HUD处理不当导崩溃（CHudWeaponSlot）
+-播放DEMO时会触发buy命令打开背包选择器
+-用DirectInput作为鼠标输入
++观察者闪光弹效果不同步
+
+IGameRule
+---------------------------------
+IGameRule::ServerActivate
+IGameRule::ServerDeactivate
+IGameRule::Think
+IGameRule::PlayerConnect
+IGameRule::PlayerDisconnect
+IGameRule::PlayerCanJoin
+IGameRule::PlayerJoin
+IGameRule::PlayerSpawn
+IGameRule::PlayerKill
+
+
+
+团队竞技
+---------------------------------
+-必须有足够的出生点（8GR + 8BL）
+-玩家有固定的出生点，每回合重新分配
++时间结束或已达成目标后玩家不可复活，并且只能使用近身武器造成伤害（包括正在加入的玩家）【正在复活进度条会一直停留】
++玩家复活后有3秒无敌时间
++玩家死后需要等待一定时间才可以复活，此时间由房主设定
++回合目标可以是固定时间也可以是需要达到一定杀敌数，由房主设定，并在下一回合生效
++回合开始有1秒冻结时间，但是不会限制玩家移动
+
+爆破模式
+---------------------------------
+幽灵模式
+---------------------------------
+个人竞技
+---------------------------------
+突围模式
+---------------------------------
+特殊战
+---------------------------------
+歼灭模式
+---------------------------------
+
+
+
+已经Hook的引擎函数
+---------------------------------
+IBaseUI::Initialize
+CSurface::DrawSetTextFont
+CSurface::DrawSetTextColor2
+CSurface::DrawSetTextColor
+CSurface::DrawSetTextPos
+CSurface::DrawGetTextPos
+CSurface::DrawPrintText
+CSurface::DrawUnicodeChar
+CSurface::DrawUnicodeCharAdd
+CSurface::CreateFont
+CSurface::AddGlyphSetToFont
+CSurface::AddCustomFontFile
+CSurface::GetFontTall
+CSurface::GetCharABCwide
+CSurface::GetCharacterWidth
+CSurface::GetTextSize
+CSurface::GetFontAscent
+Cmd_AddCommand
+Mod_LoadBrushModel
+Key_Event	为了让client.dll有机会处理ESC键消息，需要HOOK这个函数。
+Key_SetBinding	用于打断引擎绑定的一些默认按键，例如控制台的~键。
+R_LoadSkys
+R_StudioSetupSkin
+GL_LoadTexture
+SCR_NetGraph
+SCR_DrawFps
+R_RenderView	*没用到
+CVideoMode_Common::AdjustWindowForMode
+
+sub_1D58220
+
+其它Hook的函数
+---------------------------------
+CKeyValuesSystem::AllocKeyValuesMemory	(vgui2.dll)
+CKeyValuesSystem::FreeKeyValuesMemory
+
+
+DLL关系
+---------------------------------
+plugins\MT.dll				扩展引擎的功能, 向client.dll/gameui.dll提供扩展接口
+cl_dlls\client.dll			客户端游戏逻辑, 需要从MT.dll/vgui_dll.dll获取接口
+cl_dlls\gameui.dll			客户端界面, 需要从MT.dll/vgui_dll.dll获取接口
+cl_dlls\vgui_dll.dll		VGUI2扩展, 向client.dll/gameui.dll提供接口
+dlls\server.dll				服务端游戏逻辑
+
+
+实体列表
+---------------------------------
+button_target	开关
+cycler	放置MDL
+cycler_sprite	放置SPR
+cycler_wreckage	放置MDL或SPR
+env_beam	产生激光或闪电效果
+env_bubbles	产生气泡效果
+env_explosion	产生爆炸效果
+env_fade	产生闪光弹效果
+env_funnel	产生炊烟效果
+env_global	全局控制实体
+env_glow	产生灯光光晕效果
+env_laser	发射激光的实体
+env_render	可以修改其它实体的渲染属性
+env_shake	产生地震效果
+env_shooter	喷射碎片的实体（MDL或SPR）
+env_sound	更改声音效果（例如产生回音）
+env_spark	产生火花效果
+env_sprite	放置SPR
+func_breakable	放置可以打碎的东西
+func_button	开关
+func_conveyor	放置传送带
+func_door	放置移动的门
+func_door_rotating	放置转动的门
+func_friction	设置摩擦系数（例如冰面）
+func_illusionary	放置碰不到的模型
+func_ladder	放置梯子
+func_monsterclip	放置阻挡怪物的墙（FL_MONSTER）
+func_pendulum	放置来回动的实体（门或墙）
+func_pushable	放置可以推动的东西
+func_rot_button	转动的开关
+func_rotating	不停转动的实体
+func_wall	具有渲染属性的墙（例如打不碎的玻璃）
+func_wall_toggle	可以控制可见属性的墙
+func_water	水
+info_intermission	Spawn 2秒后会朝向Target指定的实体，在StartDeathCam有用到	（好像没什麽卵用）
+info_player_deathmatch		（点实体）T出生点
+info_player_start	（点实体）CT出生点
+info_target	没有任何功能的点实体
+info_teleport_destination	（点实体）	用于配合传送实体（trigger_teleport）
+infodecal	在墙上产生一个喷图（WAD文件里的）
+light	用于室内的光源
+light_environment	用于室外的光源（可以改变天空颜色）
+momentary_door	移动的门（可以播放声音）
+momentary_rot_button	控制momentary_door的开关（像是水龙头的可以拧转的）
+multi_manager	可以控制多个实体的实体（最多16个）
+multisource	根据多个实体控制一个实体（比方说要两个按钮都被按下才开门）
+player	玩家实体
+trigger	？？？
+trigger_auto	一段时间后触发一个实体（从地图加载开始）
+trigger_camera		摄像机实体
+trigger_changetarget	可以更改其它实体“目标”属性的实体
+trigger_counter		玩家穿过该实体则计数器+1，计数器到达指定值之后将触发指定的实体
+trigger_endsection	？？？
+trigger_gravity		改变玩家重力系数的实体
+trigger_hurt	可以给玩家造成伤害的实体
+trigger_multiple	玩家进入区域后反复触发实体
+trigger_once	玩家进入区域后触发一次实体
+trigger_push	玩家进入区域后产生推力（pev->velocity）
+trigger_relay	可以触动其它实体
+trigger_teleport	传送门实体
+weaponbox		玩家丢在地上的武器
+worldspawn	地图
+
+
+武器列表
+---------------------------------
+
+
+
+// 特殊的实体：
+--还没有
+
+鸣谢：
+符号（绑定人物模型）
+瓶子（绑定人物模型）
+CN（模型技术、模型工具）
+贝壳（武器模型）
+不灭（武器模型）
+NikoKVCS（武力风暴客户端源码）
+Nagist（引擎源码、CSBTE-Alpha源码）
+Hzqst（openGL技术、HLSDK相关）
+NN（CSBTE源码）
+Doge（雷达绘制源码）
+25Zhu（武器调试）
+
+测试人员：
+贝壳
+CN
+不灭
+Crsky
+25Zhu
+符号
+soviet
+xjtwch
+MX
+BaiZ
+
+
+
+
+

@@ -1,0 +1,7 @@
+.vs/
+debug/
+release/
+*.ncb
+*.suo
+*.user
+Tools/

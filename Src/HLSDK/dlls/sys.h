@@ -1,0 +1,1 @@
+void Sys_Error(const char *error, ...);

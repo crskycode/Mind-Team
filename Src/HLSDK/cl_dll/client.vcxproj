@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{70852A95-CA7C-408C-AA52-033A655135D6}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <SpectreMitigation>false</SpectreMitigation>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <SpectreMitigation>false</SpectreMitigation>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>15.0.27128.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\;..\common;..\engine;..\metastudio;..\..\dxsdk;..\..\Interface;..\..\Lib\newkeyvalues;..\pm_shared;..\public;..\tier1;..\vstdlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG;CLIENT_DLL;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>dinput8.lib;dxguid.lib;newkeyvalues.lib;tier1.lib;tier3.lib;vgui_controls.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\debug;..\..\dxsdk;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateMapFile>true</GenerateMapFile>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy "$(OutDir)$(ProjectName).dll" "I:\Client\metric\cl_dlls\$(ProjectName).dll"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>..\;..\common;..\engine;..\metastudio;..\..\dxsdk;..\..\Interface;..\..\Lib\newkeyvalues;..\pm_shared;..\public;..\tier1;..\vstdlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;CLIENT_DLL;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>dinput8.lib;dxguid.lib;newkeyvalues.lib;tier1.lib;tier3.lib;vgui_controls.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\release;..\..\dxsdk;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateMapFile>true</GenerateMapFile>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy "$(OutDir)$(ProjectName).dll" "X:\Client\metric\cl_dlls\$(ProjectName).dll"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\common\interface.cpp" />
+    <ClCompile Include="..\pm_shared\pm_debug.c" />
+    <ClCompile Include="..\pm_shared\pm_hull.c" />
+    <ClCompile Include="..\pm_shared\pm_math.c" />
+    <ClCompile Include="..\pm_shared\pm_shared.c" />
+    <ClCompile Include="AnimationScript.cpp" />
+    <ClCompile Include="BagData.cpp" />
+    <ClCompile Include="buffer.cpp" />
+    <ClCompile Include="cdll_client_int.cpp" />
+    <ClCompile Include="cdll_int.cpp" />
+    <ClCompile Include="CharacterData.cpp" />
+    <ClCompile Include="ClientState.cpp" />
+    <ClCompile Include="cl_wpn_knife.cpp" />
+    <ClCompile Include="cl_wpn_rifle.cpp" />
+    <ClCompile Include="cmdparse.cpp" />
+    <ClCompile Include="com_weapons.cpp" />
+    <ClCompile Include="demo.cpp" />
+    <ClCompile Include="dxinput.cpp" />
+    <ClCompile Include="encode.cpp" />
+    <ClCompile Include="entity.cpp" />
+    <ClCompile Include="event_hooks.cpp" />
+    <ClCompile Include="event_script.cpp" />
+    <ClCompile Include="fov.cpp" />
+    <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="GameStudioModelRenderer.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GameUI_Interface.cpp" />
+    <ClCompile Include="hud.cpp" />
+    <ClCompile Include="hud_ace.cpp" />
+    <ClCompile Include="hud_ammo.cpp" />
+    <ClCompile Include="hud_bag.cpp" />
+    <ClCompile Include="hud_center.cpp" />
+    <ClCompile Include="hud_character.cpp" />
+    <ClCompile Include="hud_crosshair.cpp" />
+    <ClCompile Include="hud_damagearrow.cpp" />
+    <ClCompile Include="hud_flashbang.cpp" />
+    <ClCompile Include="hud_gametip.cpp" />
+    <ClCompile Include="hud_gauge.cpp" />
+    <ClCompile Include="hud_goalscore.cpp" />
+    <ClCompile Include="hud_health.cpp" />
+    <ClCompile Include="hud_killer.cpp" />
+    <ClCompile Include="hud_killmsg.cpp" />
+    <ClCompile Include="hud_location.cpp" />
+    <ClCompile Include="hud_mark.cpp" />
+    <ClCompile Include="hud_mission.cpp" />
+    <ClCompile Include="hud_notify.cpp" />
+    <ClCompile Include="hud_radar.cpp" />
+    <ClCompile Include="hud_radio.cpp" />
+    <ClCompile Include="hud_scoreboard.cpp" />
+    <ClCompile Include="hud_sensity.cpp" />
+    <ClCompile Include="hud_snipercrosshair.cpp" />
+    <ClCompile Include="hud_spectate.cpp" />
+    <ClCompile Include="hud_tacticalmap.cpp" />
+    <ClCompile Include="hud_teammate.cpp" />
+    <ClCompile Include="hud_undermark.cpp" />
+    <ClCompile Include="hud_weaponslot.cpp" />
+    <ClCompile Include="hud_winstatus.cpp" />
+    <ClCompile Include="input.cpp" />
+    <ClCompile Include="inputw32.cpp" />
+    <ClCompile Include="in_camera.cpp" />
+    <ClCompile Include="layout.cpp" />
+    <ClCompile Include="MapData.cpp" />
+    <ClCompile Include="mathlib.cpp" />
+    <ClCompile Include="message.cpp" />
+    <ClCompile Include="MetaStudioMath.cpp" />
+    <ClCompile Include="MetaStudioRenderer.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="MsgAudio.cpp" />
+    <ClCompile Include="MsgAudioData.cpp" />
+    <ClCompile Include="MuzzleFlash.cpp" />
+    <ClCompile Include="parsemsg.cpp" />
+    <ClCompile Include="qgl.cpp" />
+    <ClCompile Include="Radio.cpp" />
+    <ClCompile Include="RadioData.cpp" />
+    <ClCompile Include="screenshot.cpp" />
+    <ClCompile Include="shader.cpp" />
+    <ClCompile Include="SoundData.cpp" />
+    <ClCompile Include="sprite.cpp" />
+    <ClCompile Include="StudioModelRenderer.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="StudioModelSkin.cpp" />
+    <ClCompile Include="studio_util.cpp" />
+    <ClCompile Include="sys.cpp" />
+    <ClCompile Include="tempentity.cpp" />
+    <ClCompile Include="tri.cpp" />
+    <ClCompile Include="util.cpp" />
+    <ClCompile Include="vgui_buysetupdialog.cpp" />
+    <ClCompile Include="vgui_chatboxdialog.cpp" />
+    <ClCompile Include="vgui_gamemenudialog.cpp" />
+    <ClCompile Include="view.cpp" />
+    <ClCompile Include="Viewport.cpp" />
+    <ClCompile Include="Viewport_Interface.cpp" />
+    <ClCompile Include="WeaponData.cpp" />
+    <ClCompile Include="weapons.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\common\gl_mathlib.h" />
+    <ClInclude Include="AnimationScript.h" />
+    <ClInclude Include="BagData.h" />
+    <ClInclude Include="buffer.h" />
+    <ClInclude Include="camera.h" />
+    <ClInclude Include="CEValue.h" />
+    <ClInclude Include="CharacterData.h" />
+    <ClInclude Include="ClientState.h" />
+    <ClInclude Include="cl_dll.h" />
+    <ClInclude Include="cl_util.h" />
+    <ClInclude Include="cmdparse.h" />
+    <ClInclude Include="com_weapons.h" />
+    <ClInclude Include="demo.h" />
+    <ClInclude Include="dxinput.h" />
+    <ClInclude Include="encode.h" />
+    <ClInclude Include="ev_hldm.h" />
+    <ClInclude Include="fov.h" />
+    <ClInclude Include="GameState.h" />
+    <ClInclude Include="GameStudioModelRenderer.h" />
+    <ClInclude Include="GameUI_Interface.h" />
+    <ClInclude Include="hud.h" />
+    <ClInclude Include="input.h" />
+    <ClInclude Include="kbutton.h" />
+    <ClInclude Include="MapData.h" />
+    <ClInclude Include="MetaHook_Interface.h" />
+    <ClInclude Include="metastudio.h" />
+    <ClInclude Include="MetaStudioMath.h" />
+    <ClInclude Include="MetaStudioRenderer.h" />
+    <ClInclude Include="MsgAudioData.h" />
+    <ClInclude Include="MuzzleFlash.h" />
+    <ClInclude Include="parsemsg.h" />
+    <ClInclude Include="player.h" />
+    <ClInclude Include="qgl.h" />
+    <ClInclude Include="RadioData.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="shader.h" />
+    <ClInclude Include="SoundData.h" />
+    <ClInclude Include="sprite.h" />
+    <ClInclude Include="StudioModelRenderer.h" />
+    <ClInclude Include="studio_util.h" />
+    <ClInclude Include="sys.h" />
+    <ClInclude Include="tempentity.h" />
+    <ClInclude Include="util.h" />
+    <ClInclude Include="util_vector.h" />
+    <ClInclude Include="vgui_buysetupdialog.h" />
+    <ClInclude Include="vgui_chatboxdialog.h" />
+    <ClInclude Include="vgui_gamemenudialog.h" />
+    <ClInclude Include="view.h" />
+    <ClInclude Include="Viewport.h" />
+    <ClInclude Include="WeaponData.h" />
+    <ClInclude Include="weapons.h" />
+    <ClInclude Include="wrect.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="client.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Lib\newkeyvalues\newkeyvalues.vcxproj">
+      <Project>{84ae7d9f-b3bd-4ef8-9170-e32b92fb1547}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\tier1\tier1.vcxproj">
+      <Project>{5fff4c62-87de-4d79-b7f0-995dc25feb1c}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\tier3\tier3.vcxproj">
+      <Project>{50ce2d41-7527-4ad5-a564-f507e9b70aca}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\vgui_controls\vgui_controls.vcxproj">
+      <Project>{d2f9c58f-fa8a-42a6-bb1a-9e290f3f3fc6}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

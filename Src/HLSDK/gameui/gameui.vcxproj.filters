@@ -1,0 +1,383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source\CFUI">
+      <UniqueIdentifier>{3141ed1a-b68a-47eb-9e88-88c7b41aaac5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BasePanel.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="CDKeyEntryDialog.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="consoledialog.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateMultiplayerGameDialog.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateMultiplayerGameGameplayPage.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateMultiplayerGameServerPage.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="CvarNegateCheckButton.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="CvarSlider.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="CvarToggleCheckButton.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="encode.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="GameConsole.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="GameConsoleDialog.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="GameUI_Interface.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="guid.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\interface.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyToggleCheckButton.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionsDialog.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionsSubAudio.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionsSubKeyboard.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionsSubMouse.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionsSubVideo.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="PanelListPanel.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptObject.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ShopItemManager.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="sys.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="URLButton.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="UserSystem.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="vcontrolslistpanel.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="CF_Button.cpp">
+      <Filter>Source\CFUI</Filter>
+    </ClCompile>
+    <ClCompile Include="CF_Dialog.cpp">
+      <Filter>Source\CFUI</Filter>
+    </ClCompile>
+    <ClCompile Include="CF_Edit.cpp">
+      <Filter>Source\CFUI</Filter>
+    </ClCompile>
+    <ClCompile Include="CF_Image.cpp">
+      <Filter>Source\CFUI</Filter>
+    </ClCompile>
+    <ClCompile Include="CF_KeyEdit.cpp">
+      <Filter>Source\CFUI</Filter>
+    </ClCompile>
+    <ClCompile Include="CF_RadioButton.cpp">
+      <Filter>Source\CFUI</Filter>
+    </ClCompile>
+    <ClCompile Include="CF_ScrollBar.cpp">
+      <Filter>Source\CFUI</Filter>
+    </ClCompile>
+    <ClCompile Include="CF_Slider.cpp">
+      <Filter>Source\CFUI</Filter>
+    </ClCompile>
+    <ClCompile Include="CF_Sprite.cpp">
+      <Filter>Source\CFUI</Filter>
+    </ClCompile>
+    <ClCompile Include="CF_Static.cpp">
+      <Filter>Source\CFUI</Filter>
+    </ClCompile>
+    <ClCompile Include="CF_Tab.cpp">
+      <Filter>Source\CFUI</Filter>
+    </ClCompile>
+    <ClCompile Include="CF_Window.cpp">
+      <Filter>Source\CFUI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_ChannelSelect.cpp">
+      <Filter>Source\CFUI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_CharacterCreate.cpp">
+      <Filter>Source\CFUI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_FirstLoginNotice.cpp">
+      <Filter>Source\CFUI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_FlowTop.cpp">
+      <Filter>Source\CFUI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_GameEnd.cpp">
+      <Filter>Source\CFUI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Globals.cpp">
+      <Filter>Source\CFUI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Inven.cpp">
+      <Filter>Source\CFUI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Loading.cpp">
+      <Filter>Source\CFUI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Lobby.cpp">
+      <Filter>Source\CFUI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_MakeRoom.cpp">
+      <Filter>Source\CFUI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_MsgWnd.cpp">
+      <Filter>Source\CFUI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Option.cpp">
+      <Filter>Source\CFUI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Result.cpp">
+      <Filter>Source\CFUI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Room.cpp">
+      <Filter>Source\CFUI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_ServerSelect.cpp">
+      <Filter>Source\CFUI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Shop.cpp">
+      <Filter>Source\CFUI</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="UserSystem.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="CF_Base.h">
+      <Filter>Source\CFUI</Filter>
+    </ClInclude>
+    <ClInclude Include="CF_Button.h">
+      <Filter>Source\CFUI</Filter>
+    </ClInclude>
+    <ClInclude Include="CF_Dialog.h">
+      <Filter>Source\CFUI</Filter>
+    </ClInclude>
+    <ClInclude Include="CF_Edit.h">
+      <Filter>Source\CFUI</Filter>
+    </ClInclude>
+    <ClInclude Include="CF_Image.h">
+      <Filter>Source\CFUI</Filter>
+    </ClInclude>
+    <ClInclude Include="CF_KeyEdit.h">
+      <Filter>Source\CFUI</Filter>
+    </ClInclude>
+    <ClInclude Include="CF_RadioButton.h">
+      <Filter>Source\CFUI</Filter>
+    </ClInclude>
+    <ClInclude Include="CF_ScrollBar.h">
+      <Filter>Source\CFUI</Filter>
+    </ClInclude>
+    <ClInclude Include="CF_Slider.h">
+      <Filter>Source\CFUI</Filter>
+    </ClInclude>
+    <ClInclude Include="CF_Sprite.h">
+      <Filter>Source\CFUI</Filter>
+    </ClInclude>
+    <ClInclude Include="CF_Static.h">
+      <Filter>Source\CFUI</Filter>
+    </ClInclude>
+    <ClInclude Include="CF_Tab.h">
+      <Filter>Source\CFUI</Filter>
+    </ClInclude>
+    <ClInclude Include="CF_Window.h">
+      <Filter>Source\CFUI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_ChannelSelect.h">
+      <Filter>Source\CFUI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_CharacterCreate.h">
+      <Filter>Source\CFUI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_FirstLoginNotice.h">
+      <Filter>Source\CFUI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_FlowTop.h">
+      <Filter>Source\CFUI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_GameEnd.h">
+      <Filter>Source\CFUI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Globals.h">
+      <Filter>Source\CFUI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Inven.h">
+      <Filter>Source\CFUI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Loading.h">
+      <Filter>Source\CFUI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Lobby.h">
+      <Filter>Source\CFUI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_MakeRoom.h">
+      <Filter>Source\CFUI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_MsgWnd.h">
+      <Filter>Source\CFUI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Option.h">
+      <Filter>Source\CFUI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Result.h">
+      <Filter>Source\CFUI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Room.h">
+      <Filter>Source\CFUI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_ServerSelect.h">
+      <Filter>Source\CFUI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Shop.h">
+      <Filter>Source\CFUI</Filter>
+    </ClInclude>
+    <ClInclude Include="BasePanel.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CDKeyEntryDialog.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CEValue.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="consoledialog.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateMultiplayerGameDialog.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateMultiplayerGameGameplayPage.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateMultiplayerGameServerPage.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CvarNegateCheckButton.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CvarSlider.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CvarToggleCheckButton.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="encode.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineInterface.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="GameConsole.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="GameConsoleDialog.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="GameUI_Interface.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="guid.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="IMTEngine_Internal.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyToggleCheckButton.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionsDialog.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionsSubAudio.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionsSubKeyboard.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionsSubMouse.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionsSubVideo.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="PanelListPanel.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptObject.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Setting.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ShopItemManager.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_util.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="sys.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="URLButton.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="vcontrolslistpanel.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="gameui.rc">
+      <Filter>Resource</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,141 @@
+﻿
+//要修改的函数:
+// 服务端和客户端都有使用
+// 检查模型包围盒大小的函数，随便返回一个就行
+// 里面调用了 R_StudioComputeBounds 来计算，涉及到关节和顶点
+R_GetStudioBounds
+SV_CheckSphereIntersection
+GetBonePosition
+GetAttachment
+WeaponHasAttachments
+R_StudioDrawPlayer
+R_StudioComputeBounds
+Mod_LoadStudioModel
+R_StudioHull
+R_StudioBodyVariations
+SV_HullForStudioModel
+
+//R_ResetLatched调用
+CL_GetEstimatedFrame
+
+//R_GLStudioDrawPoints调用
+R_LoadTextures
+
+//R_StudioSetupSkin调用
+R_StudioReloadSkin
+
+//client.dll调用(StudioAPI)
+R_StudioSetupSkin
+
+//client.dll调用
+R_StudioDrawModel
+R_StudioDrawPlayer
+
+
+
+新的结构体:
+mstudiobone_t
+mstudioattachment_t
+mstudiobbox_t
+mstudioseqdesc_t
+mstudioevent_t
+mstudiotexture_t
+
+新版WriteAnimations:
+WriteAnimations
+{
+	[numseq]
+	{
+		ii_studioanim_t [seq.numblend]
+		
+		[seq.numblend]
+		{
+			int time[seq.anim.numframes]
+			
+			[seq.anim.numframes]
+			{
+				[seq.anim.numbones]
+				{
+					ii_studioanimvalue_t value
+				}
+			}
+		}
+	}
+}
+//新版WriteModel
+WriteModel
+{
+	ii_studiobodyparts_t [numbodyparts]
+	ii_studiomodel_t [nummodels]
+	
+	[nummodels]
+	{
+		ii_studiovertex_t [model.numverts]
+		ii_studiomesh_t [model.nummesh]
+		
+		[model.nummesh]
+		{
+			ii_studiotriangle_t [model.mesh.numtris]
+		}
+	}
+}
+
+ii_studioanim_t *panim = (ii_studioanim_t *)((byte *)pstudiohdr + pseqdesc->animindex);
+
+ii_studioanimvalue_t *pvalue = (ii_studioanimvalue_t *)((byte *)pstudiohdr + ppanim[blend].valueindex);
+
+int framesize = ppanim[blend].numbones * sizeof( ii_studioanimvalue_t );
+
+ii_studioanimvalue_t *pframevalue = pvalue + frame * framesize;
+
+//原版MDL:
+
+WriteSequenceInfo()
+{
+	mstudioseqdesc_t [numseq]
+	
+	[numseq]
+	{
+		mstudioevent_t [seq.numevents]
+		mstudiopivot_t [seq.numpivots]
+	}
+	
+	mstudioseqgroup_t [numseqgroups]
+	
+	byte xnode[numxnodes][numxnodes]
+}
+
+WriteModel()
+{
+	mstudiobodyparts_t [numbodyparts]			// BODY信息结构体，每个BODY可以拥有多个子模型
+	mstudiomodel_t [nummodels]				// 子模型信息结构体
+
+	[nummodels]
+	{
+		byte [model.numverts]				// 每个顶点对应的关节索引
+		byte [model.numnorms]				// 每个法线对应的关节索引
+		vec3_t [model.numverts]			// 顶点位置数组
+		vec3_t [model.numnorms]			// 法线数组
+		mstudiomesh_t [model.nummesh]		// Mesh信息结构体数组
+		
+		[model.nummesh]
+		{
+			byte [numCmdBytes]				// 三角形绘制命令(表示绘制三角形带所需要的顶点索引)
+											// 实际上是 short 型数组，以 0 结尾
+		}
+	}
+}
+
+//三角形绘制命令
+loop
+{
+	cmd[+0]	numverts	// 三角形带的顶点数量，正负数表示三角形带类型，如果为0则命令已结束
+	
+	loop [numverts]
+	{
+		cmd[+1]	vert-index
+		cmd[+2]	norm-index
+		cmd[+3]	uv.s
+		cmd[+4]	uv.t
+	}
+}

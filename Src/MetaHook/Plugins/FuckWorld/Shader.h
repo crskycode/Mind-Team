@@ -1,0 +1,1 @@
+int CreateShader(const char *vertexShader, const char *fragmentShader);

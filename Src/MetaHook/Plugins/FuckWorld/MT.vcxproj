@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{FBF9CAF6-8DED-4EB0-8E7B-18294607C5C5}</ProjectGuid>
+    <RootNamespace>MT</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <SpectreMitigation>false</SpectreMitigation>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <SpectreMitigation>false</SpectreMitigation>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>15.0.27128.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\HLSDK\cl_dll;..\..\HLSDK\common;..\..\HLSDK\engine;..\..\HLSDK\pm_shared;..\..\HLSDK\public;..\..\Interface;..\..\..\Interface;..\..\..\Lib\newkeyvalues;..\..\..\Lib\lpng1630;..\..\..\Lib\freetype-2.8\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DisableSpecificWarnings>4311;4312;4819;4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>libpng16.lib;freetype28.lib;newkeyvalues.lib;GdiPlus.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\..\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateMapFile>true</GenerateMapFile>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy "$(OutDir)$(ProjectName).dll" "I:\Client\metric\metahook\plugins\$(ProjectName).dll"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\HLSDK\cl_dll;..\..\HLSDK\common;..\..\HLSDK\engine;..\..\HLSDK\pm_shared;..\..\HLSDK\public;..\..\Interface;..\..\..\Interface;..\..\..\Lib\newkeyvalues;..\..\..\Lib\lpng1630;..\..\..\Lib\freetype-2.8\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4311;4312;4819;4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>libpng16.lib;freetype28.lib;newkeyvalues.lib;GdiPlus.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\..\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateMapFile>true</GenerateMapFile>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy "$(OutDir)$(ProjectName).dll" "X:\Client\metric\metahook\plugins\$(ProjectName).dll"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\HLSDK\common\interface.cpp" />
+    <ClCompile Include="..\..\HLSDK\common\parsemsg.cpp" />
+    <ClCompile Include="BaseUI.cpp" />
+    <ClCompile Include="BinkTextureInterface.cpp" />
+    <ClCompile Include="bink_material.cpp" />
+    <ClCompile Include="bsptexture.cpp" />
+    <ClCompile Include="cachedbg.cpp" />
+    <ClCompile Include="command.cpp" />
+    <ClCompile Include="DrawFonts.cpp" />
+    <ClCompile Include="DrawTextures.cpp" />
+    <ClCompile Include="engine_addr.cpp" />
+    <ClCompile Include="exportfuncs.cpp" />
+    <ClCompile Include="FontAmalgam.cpp" />
+    <ClCompile Include="FontManager.cpp" />
+    <ClCompile Include="FontTextureCache.cpp" />
+    <ClCompile Include="fps.cpp" />
+    <ClCompile Include="ftfont.cpp" />
+    <ClCompile Include="gl_rmain.cpp" />
+    <ClCompile Include="gl_texture.cpp" />
+    <ClCompile Include="keys.cpp" />
+    <ClCompile Include="KeyValuesSystem.cpp" />
+    <ClCompile Include="line.cpp" />
+    <ClCompile Include="log.cpp" />
+    <ClCompile Include="mathlib.cpp" />
+    <ClCompile Include="MTEngine_Interface.cpp" />
+    <ClCompile Include="pixelformat.cpp" />
+    <ClCompile Include="plugins.cpp" />
+    <ClCompile Include="qgl.cpp" />
+    <ClCompile Include="registry.cpp" />
+    <ClCompile Include="resource.cpp" />
+    <ClCompile Include="r_studio.cpp" />
+    <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="sky.cpp" />
+    <ClCompile Include="startupgraphic.cpp" />
+    <ClCompile Include="StudioModelSkin.cpp" />
+    <ClCompile Include="StudioRender_Warp.cpp" />
+    <ClCompile Include="studio_render.cpp" />
+    <ClCompile Include="studio_utils.cpp" />
+    <ClCompile Include="surface.cpp" />
+    <ClCompile Include="sys.cpp" />
+    <ClCompile Include="TextureCache.cpp" />
+    <ClCompile Include="TextureLoad.cpp" />
+    <ClCompile Include="wad.cpp" />
+    <ClCompile Include="Win32Font.cpp" />
+    <ClCompile Include="WindowMode.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\Interface\IFileSystem.h" />
+    <ClInclude Include="..\..\..\Interface\IFontAPI.h" />
+    <ClInclude Include="..\..\..\Interface\IMTEngine.h" />
+    <ClInclude Include="..\..\..\Interface\IStudioRender.h" />
+    <ClInclude Include="..\..\..\Interface\ITextureAPI.h" />
+    <ClInclude Include="BinkTextureInterface.h" />
+    <ClInclude Include="bink_material.h" />
+    <ClInclude Include="bsptexture.h" />
+    <ClInclude Include="cachedbg.h" />
+    <ClInclude Include="Decal.h" />
+    <ClInclude Include="DrawFade.h" />
+    <ClInclude Include="DrawFonts.h" />
+    <ClInclude Include="DrawTextures.h" />
+    <ClInclude Include="engfuncs.h" />
+    <ClInclude Include="engine_addr.h" />
+    <ClInclude Include="exportfuncs.h" />
+    <ClInclude Include="FontAmalgam.h" />
+    <ClInclude Include="FontManager.h" />
+    <ClInclude Include="FontTextureCache.h" />
+    <ClInclude Include="ftfont.h" />
+    <ClInclude Include="keyvalues_helper.h" />
+    <ClInclude Include="ltbasetypes.h" />
+    <ClInclude Include="ltpvalue.h" />
+    <ClInclude Include="mathlib.h" />
+    <ClInclude Include="pixelformat.h" />
+    <ClInclude Include="plugins.h" />
+    <ClInclude Include="qbink.h" />
+    <ClInclude Include="qgl.h" />
+    <ClInclude Include="quakedef.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="Shader.h" />
+    <ClInclude Include="strtools.h" />
+    <ClInclude Include="studio_model.h" />
+    <ClInclude Include="surface.h" />
+    <ClInclude Include="sys.h" />
+    <ClInclude Include="TextureCache.h" />
+    <ClInclude Include="TextureLoad.h" />
+    <ClInclude Include="UtlMemory.h" />
+    <ClInclude Include="UtlRBTree.h" />
+    <ClInclude Include="UtlVector.h" />
+    <ClInclude Include="wad.h" />
+    <ClInclude Include="Win32Font.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MT.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Lib\freetype-2.8\builds\windows\vc2005\freetype.vcxproj">
+      <Project>{78b079bd-9fc7-4b9e-b4a6-96da0f00248b}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Lib\lpng1630\projects\visualc8\libpng.vcxproj">
+      <Project>{85dd50cd-1964-4116-aa41-458d7c6db7ea}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Lib\newkeyvalues\newkeyvalues.vcxproj">
+      <Project>{84ae7d9f-b3bd-4ef8-9170-e32b92fb1547}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
