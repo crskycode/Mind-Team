@@ -30,3 +30,5 @@ Mind-Team 2017 Old Version
 #### 资源
 
 [资源](https://1drv.ms/u/c/c0c60ef3d366858f/EXP4UwkG3URNmD-om2mckrMBC26ECvhtimO_4olpFNFpVA)
+
+pw `metric2018`
